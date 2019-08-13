@@ -4,6 +4,7 @@
 package ar.com.mercadolibre;
 
 public class App {
+
     public String getGreeting() {
         return "Hello world.";
     }
