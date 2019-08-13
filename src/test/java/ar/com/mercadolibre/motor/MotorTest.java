@@ -30,6 +30,19 @@ public class MotorTest {
         Assertions.assertThat(motor.potencia).isLessThan(potenciaInicial);
     }
 
+
+    @Test
+    public  void motorCombustibleSinRefrigerante(){
+        Double temperaturaInicial = 30.0;
+        MotorCombustible motorCombustible = new MotorCombustible(10);
+        MotorNuclear motorNuclear = new MotorNuclear(10);
+        Assertions.assertThat(motorCombustible.potencia).isEqualTo(10);
+        Assertions.assertThat(motorCombustible.temperatura).isNotNull();
+        motorNuclear.refrigerar();
+        Assertions.assertThat(motorNuclear.temperatura).isLessThan(temperaturaInicial);
+        Assertions.assertThat(motorCombustible.temperatura).isEqualTo(temperaturaInicial);
+    }
+
     @Test
     public  void refrigerarMotorNuclear(){
         Double temperaturaInicial = 30.0;
