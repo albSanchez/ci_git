@@ -4,14 +4,22 @@ import java.text.DateFormat;
 
 public class Alquiler {
 
-    Boolean libroAlquilado;
+    Boolean alquilado;
     DateFormat fechaAlquiler;
-    DateFormat fechaDevoducion;
+    String fechaDevolucion;
+    Libro libro;
 
-    public Alquiler(Boolean libroAlquilado, DateFormat fechaDevoducion){
+    public Alquiler(Libro libro, String fechaDevolucion){
         this.fechaAlquiler = DateFormat.getDateInstance();
-        this.fechaDevoducion = fechaDevoducion;
-        this.libroAlquilado = libroAlquilado;
+        this.fechaDevolucion = fechaDevolucion;
+        this.alquilado = true;
+        this.libro = libro;
+    }
+
+    public Alquiler( String fechaDevolucion) {
+        this.fechaAlquiler = DateFormat.getDateInstance();
+        this.fechaDevolucion = fechaDevolucion;
+        this.alquilado = true;
     }
 
 }

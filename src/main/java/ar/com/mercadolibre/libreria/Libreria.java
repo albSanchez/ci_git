@@ -2,10 +2,12 @@ package ar.com.mercadolibre.libreria;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Libreria {
 
     private static Libreria unique = new Libreria();
+
     private List<Alquiler> alquileres = new ArrayList<>();
 
     private Libreria(){ }
@@ -21,14 +23,13 @@ public class Libreria {
         alquileres.add(alquiler);
     }
 
-    public Alquiler buscarAquiler(){
-        try{
-            // iterar con lammda
-        }catch (Exception e){
-            e.printStackTrace();
-            System.out.println("Alquiler no existe");
-        }
-        return  null;
+    public Alquiler buscarAlquiler(Libro libro){
+        Predicate<Alquiler> criterio = alquiler -> alquiler.libro.getTitulo().equals(libro.getTitulo());
+        return alquileres.stream().filter(criterio).findFirst().get();
+    }
+
+    public List<Alquiler> listarAquileres(){
+       return alquileres;
     }
 
 
